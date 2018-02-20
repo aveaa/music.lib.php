@@ -24,9 +24,9 @@ const commands = {
 			let collector = msg.channel.createCollector(m => m);
 			collector.on('message', m => {
 				if (m.content.startsWith(process.env.PREFIX + 'pause')) {
-					msg.channel.sendMessage('paused').then(() => {dispatcher.pause();});
+					msg.channel.sendMessage('на паузе').then(() => {dispatcher.pause();});
 				} else if (m.content.startsWith(process.env.PREFIX + 'resume')){
-					msg.channel.sendMessage('resumed').then(() => {dispatcher.resume();});
+					msg.channel.sendMessage('востановлено').then(() => {dispatcher.resume();});
 				} else if (m.content.startsWith(process.env.PREFIX + 'skip')){
 					msg.channel.sendMessage('skipped').then(() => {dispatcher.end();});
 				} else if (m.content.startsWith('volume+')){
@@ -77,7 +77,7 @@ const commands = {
 		msg.channel.sendMessage(`Очередь пользователя __**${msg.guild.name}:**__ На данный момент **${tosend.length}** песен добавлено ${(tosend.length > 15 ? '*[Только следующие 15 отображены]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
 	},
 	'help': (msg) => {
-		let tosend = ['```xl', process.env.PREFIX + 'join : "Войти в ваш голосовой канал"',	process.env.PREFIX + 'add : "Добавить ссылку на видео с песней"', process.env.PREFIX + 'queue : "Отображает следующие 15 песен в очереди"', process.env.PREFIX + 'play : "Play the music queue if already joined to a voice channel"', '', 'the following commands only function while the play command is running:'.toUpperCase(), process.env.PREFIX + 'pause : "pauses the music"',	process.env.PREFIX + 'resume : "resumes the music"', process.env.PREFIX + 'skip : "skips the playing song"', process.env.PREFIX + 'time : "Shows the playtime of the song."',	'volume+(+++) : "increases volume by 2%/+"',	'volume-(---) : "decreases volume by 2%/-"',	'```'];
+		let tosend = ['```xl', process.env.PREFIX + 'join : "Войти в ваш голосовой канал"',	process.env.PREFIX + 'add : "Добавить ссылку на видео с песней"', process.env.PREFIX + 'queue : "Отображает следующие 15 песен в очереди"', process.env.PREFIX + 'play : "Начать играть музыку"', '', 'the following commands only function while the play command is running:'.toUpperCase(), process.env.PREFIX + 'pause : "пауза"',	process.env.PREFIX + 'resume : "востановление"', process.env.PREFIX + 'skip : "скипнуть песню"', process.env.PREFIX + 'time : "Показать время."',	'volume+(+++) : "Повысить звук до 2%/+"',	'volume-(---) : "Уменьшитьюзвук до 2%/-"',	'```'];
 		msg.channel.sendMessage(tosend.join('\n'));
 	},
 	'reboot': (msg) => {
