@@ -93,4 +93,4 @@ client.on('message', msg => {
 	if (!msg.content.startsWith(process.env.PREFIX)) return;
 	if (commands.hasOwnProperty(msg.content.toLowerCase().slice(process.env.PREFIX.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(process.env.PREFIX.length).split(' ')[0]](msg);
 });
-client.login(process.env.TOKEN); 'skip')){TOKEN);
+client.login(process.env.TOKEN);
